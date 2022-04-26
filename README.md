@@ -27,7 +27,7 @@ The following methods are available in the NobleQuran class (See example code fo
 
 ## Documentation
 
-For documentation [Click Here](https://github.com/hashirabdulbasheer/noble_quran_flutter_package/doc/api/index.html)
+For documentation [Click Here](https://raw.githubusercontent.com/hashirabdulbasheer/noble_quran_flutter_package/master/doc/api/index.html){:target="_blank" rel="noopener"}
 
 ## Getting Started With Flutter
 
