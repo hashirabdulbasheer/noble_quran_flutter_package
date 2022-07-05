@@ -4,26 +4,26 @@ A flutter package to access Noble Quran verses/ayats. The package provides metho
 ayats in arabic, translation, transliteration and word by word formats.
 
 The following methods are available in the NobleQuran class (See example code for usage):
- 1) surahListScreen:
- Returns a widget with the list of surah titles for table of contents.
+1) surahListScreen:
+   Returns a widget with the list of surah titles for table of contents.
 
- 2) getSurahList:
- Returns a list of SurahTitles containing the surah title and relevant information
+2) getSurahList:
+   Returns a list of SurahTitles containing the surah title and relevant information
 
- 3) getSurahTitleAtIndex:
- Returns the SurahTitle at an index
+3) getSurahTitleAtIndex:
+   Returns the SurahTitle at an index
 
- 4) getSurahWordByWord:
- Returns the Word by Word ayats of a Surah
+4) getSurahWordByWord:
+   Returns the Word by Word ayats of a Surah
 
- 5) getSurahArabic:
- Returns the arabic ayats of a surah
+5) getSurahArabic:
+   Returns the arabic ayats of a surah
 
- 6) getSurahTransliteration:
- Returns the transliteration ayats of a surah
+6) getSurahTransliteration:
+   Returns the transliteration ayats of a surah
 
- 7) getTranslationString:
- Returns the translation of a surah
+7) getTranslationString:
+   Returns the translation of a surah
 
 ## Documentation
 
@@ -34,9 +34,9 @@ doc/api folder
 Include the following dependency in your app's pubspec.yaml
 
 noble_quran:
- git:
-  url: https://github.com/hashirabdulbasheer/noble_quran_flutter_package.git
-  ref: master
+<br />&nbsp;&nbsp;&nbsp;&nbsp;git:
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: https://github.com/hashirabdulbasheer/noble_quran_flutter_package.git
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ref: master
 
 ## Getting Started With Flutter
 
