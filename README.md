@@ -29,6 +29,15 @@ The following methods are available in the NobleQuran class (See example code fo
 
 doc/api folder
 
+## Installation
+
+Include the following dependency in your app's pubspec.yaml
+
+noble_quran:
+ git:
+  url: https://github.com/hashirabdulbasheer/noble_quran_flutter_package.git
+  ref: master
+
 ## Getting Started With Flutter
 
 This project is a starting point for a Dart [package](https://flutter.dev/developing-packages/),
