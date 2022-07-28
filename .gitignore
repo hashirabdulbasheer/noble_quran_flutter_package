@@ -29,10 +29,10 @@
 .pub-cache/
 .pub/
 /build/
+/ios/Build/
 pubspec.lock
 
 # Web related
-lib/generated_plugin_registrant.dart
 
 # Symbolication related
 app.*.symbols
@@ -44,3 +44,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+google-services.json
+GoogleService-Info.plist
+/lib/firebase_options.dart
+commands.txt
+/ios/firebase_app_id_file.json
