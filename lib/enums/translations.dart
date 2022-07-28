@@ -1,4 +1,4 @@
-enum NQTranslation { SAHIH, HILALI }
+enum NQTranslation { SAHIH, HILALI, CLEAR }
 
 extension NQTranslationExtension on NQTranslation {
   String get rawValue {
@@ -7,6 +7,8 @@ extension NQTranslationExtension on NQTranslation {
         return 'sahih';
       case NQTranslation.HILALI:
         return 'hilali';
+      case NQTranslation.CLEAR:
+        return 'clear';
       default:
         return 'hilali';
     }
