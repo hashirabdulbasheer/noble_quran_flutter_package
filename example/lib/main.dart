@@ -214,7 +214,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.all(10),
                     child: ElevatedButton(
                         onPressed: () {
-                          NobleQuran.getTranslationString(111, NQTranslation.CLEAR).then((surah) {
+                          NobleQuran.getTranslationString(111, NQTranslation.clear).then((surah) {
                             String ayatsStr = "";
                             for (NQAyat word in surah.aya) {
                               ayatsStr += "${word.index} - ${word.text}\n";

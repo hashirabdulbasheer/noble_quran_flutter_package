@@ -74,7 +74,7 @@ void main() {
   /// test the surah translation
   test('get surah translation', () async {
     NQSurah surah =
-        await NobleQuran.getTranslationString(Random().nextInt(114), NQTranslation.SAHIH);
+        await NobleQuran.getTranslationString(Random().nextInt(114), NQTranslation.sahih);
     expect(surah.aya.length > 0, true);
     expect(surah.aya[0].index.isNotEmpty, true);
     expect(surah.aya[0].text.isNotEmpty, true);
