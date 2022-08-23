@@ -11,7 +11,7 @@ extension NQTranslationExtension on NQTranslation {
         return 'clear';
       case NQTranslation.malayalam_abdulhameed:
         return 'ml_abdulhameed';
-      case NQTranslation.malayalam_abdulhameed:
+      case NQTranslation.malayalam_karakunnu:
         return 'ml_karakunnu';
       case NQTranslation.urdu_maududi:
         return 'ur_maududi';
