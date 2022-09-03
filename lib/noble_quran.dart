@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'constants/path_constants.dart';
 import 'enums/translations.dart';
+import 'models/reciter.dart';
 import 'models/surah.dart';
 import 'models/surah_title.dart';
 import 'models/word.dart';
 import 'screens/surah_list_screen.dart';
+import 'package:intl/intl.dart' as intl;
 
 /// NobleQuran class to access the functionality of the package
 class NobleQuran {
@@ -140,5 +142,17 @@ class NobleQuran {
     return NQTranslation.clear;
   }
 
+  /// Returns all reciters
+  static Future<List<QuranReciter>> getAllReciters() async {
+    String recitersJsonStr =
+        await rootBundle.loadString('${NQPathConstants.quranRecitersPath}');
+    return quranReciterFromJson(recitersJsonStr);
+  }
 
+  /// Returns the url for the audio recitation of an aya
+  static String audioRecitationUrl(
+      QuranReciter reciter, int surahIndex, int ayaIndex) {
+    final intl.NumberFormat formatter = intl.NumberFormat("000");
+    return "${NQUrlConstants.audioRecitationBaseUrl}/${reciter.subfolder}/${formatter.format(surahIndex)}${formatter.format(ayaIndex)}.mp3";
+  }
 }

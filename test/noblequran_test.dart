@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:noble_quran/enums/translations.dart';
+import 'package:noble_quran/models/reciter.dart';
 import 'package:noble_quran/models/surah.dart';
 import 'package:noble_quran/models/surah_title.dart';
 import 'package:noble_quran/models/word.dart';
@@ -30,7 +31,8 @@ void main() {
 
   /// test the surah at index
   test('get surah at index', () async {
-    NQSurahTitle surah = await NobleQuran.getSurahTitleAtIndex(Random().nextInt(114));
+    NQSurahTitle surah =
+        await NobleQuran.getSurahTitleAtIndex(Random().nextInt(114));
     expect(surah.name.isNotEmpty, true);
     expect(surah.translationEn.isNotEmpty, true);
     expect(surah.transliterationEn.isNotEmpty, true);
@@ -40,7 +42,8 @@ void main() {
 
   /// test the surah word by word
   test('get surah word by word', () async {
-    List<List<NQWord>> words = await NobleQuran.getSurahWordByWord(Random().nextInt(114));
+    List<List<NQWord>> words =
+        await NobleQuran.getSurahWordByWord(Random().nextInt(114));
     expect(words.length > 0, true);
     expect(words[0].length > 0, true);
     expect(words[0][0].aya >= 0, true);
@@ -63,7 +66,8 @@ void main() {
 
   /// test the surah transliteration
   test('get surah transliteration', () async {
-    NQSurah surah = await NobleQuran.getSurahTransliteration(Random().nextInt(114));
+    NQSurah surah =
+        await NobleQuran.getSurahTransliteration(Random().nextInt(114));
     expect(surah.aya.length > 0, true);
     expect(surah.aya[0].index.isNotEmpty, true);
     expect(surah.aya[0].text.isNotEmpty, true);
@@ -73,12 +77,27 @@ void main() {
 
   /// test the surah translation
   test('get surah translation', () async {
-    NQSurah surah =
-        await NobleQuran.getTranslationString(Random().nextInt(114), NQTranslation.sahih);
+    NQSurah surah = await NobleQuran.getTranslationString(
+        Random().nextInt(114), NQTranslation.sahih);
     expect(surah.aya.length > 0, true);
     expect(surah.aya[0].index.isNotEmpty, true);
     expect(surah.aya[0].text.isNotEmpty, true);
     expect(surah.name != null && surah.name!.isNotEmpty, true);
     expect(surah.index.isNotEmpty, true);
+  });
+
+  test('get surah recitations', () async {
+    List<QuranReciter> reciters = await NobleQuran.getAllReciters();
+    expect(reciters.isNotEmpty, true);
+  });
+
+  test('get surah url', () async {
+    QuranReciter reciter = QuranReciter(
+        subfolder: "khalefa_al_tunaiji_64kbps",
+        name: "Khalefa Al-Tunaiji",
+        bitrate: "64kbps");
+    String url = NobleQuran.audioRecitationUrl(reciter, 1, 2);
+    expect(url,
+        "http://www.everyayah.com/data/khalefa_al_tunaiji_64kbps/001002.mp3");
   });
 }
