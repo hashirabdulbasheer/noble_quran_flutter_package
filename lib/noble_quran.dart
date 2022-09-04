@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'constants/path_constants.dart';
+import 'data/data.dart';
 import 'enums/translations.dart';
 import 'models/reciter.dart';
 import 'models/surah.dart';
@@ -143,10 +144,9 @@ class NobleQuran {
   }
 
   /// Returns all reciters
-  static Future<List<QuranReciter>> getAllReciters() async {
-    String recitersJsonStr =
-        await rootBundle.loadString('${NQPathConstants.quranRecitersPath}');
-    return quranReciterFromJson(recitersJsonStr);
+  static List<QuranReciter> getAllReciters() {
+    List<Map<String, String>> recitersJson = NQData.recitersJson;
+    return recitersJson.map((e) => QuranReciter.fromJson(e)).toList();
   }
 
   /// Returns the url for the audio recitation of an aya

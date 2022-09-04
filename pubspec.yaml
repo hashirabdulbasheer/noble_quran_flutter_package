@@ -1,6 +1,6 @@
 name: noble_quran
 description: A flutter package to access noble quran verses
-version: 0.0.8
+version: 0.0.9
 homepage: http://www.uxquran.com
 
 environment:

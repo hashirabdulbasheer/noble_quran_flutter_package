@@ -86,9 +86,10 @@ void main() {
     expect(surah.index.isNotEmpty, true);
   });
 
-  test('get surah recitations', () async {
-    List<QuranReciter> reciters = await NobleQuran.getAllReciters();
+  test('get surah recitations', () {
+    List<QuranReciter> reciters = NobleQuran.getAllReciters();
     expect(reciters.isNotEmpty, true);
+    expect(reciters.length, 79);
   });
 
   test('get surah url', () async {
