@@ -12,7 +12,10 @@ class NQUtils {
   ///     context: the BuildContext
   ///     message: the message String to be displayed
   ///  Returns: Void
-  static showSnackBar(BuildContext context, String message) {
+  static void showSnackBar(
+    BuildContext context,
+    String message,
+  ) {
     final snackBar = SnackBar(content: Text(message));
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
@@ -21,7 +24,7 @@ class NQUtils {
   ///  Parameter:
   ///     context: the BuildContext
   ///  Returns: Void
-  static hideSnackBar(BuildContext context) {
+  static void hideSnackBar(BuildContext context) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
   }
 
@@ -31,7 +34,12 @@ class NQUtils {
   ///  Returns: Void
   static void saveBookmark(NQBookmark bookmark) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString("bookmark", json.encode(bookmark.toJson()));
+    await prefs.setString(
+      "bookmark",
+      json.encode(
+        bookmark.toJson(),
+      ),
+    );
   }
 
   ///  Utility method to fetch the saved bookmark
@@ -41,9 +49,13 @@ class NQUtils {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? bookmarkJson = prefs.getString("bookmark") ?? null;
     if (bookmarkJson != null && bookmarkJson != "") {
-      NQBookmark bookmark = NQBookmark.fromJson(json.decode(bookmarkJson));
+      NQBookmark bookmark = NQBookmark.fromJson(
+        json.decode(bookmarkJson) as Map<String, dynamic>,
+      );
+
       return bookmark;
     }
+
     return null;
   }
 
@@ -52,9 +64,15 @@ class NQUtils {
   ///   key: The key as String
   ///   value: The value as String
   /// Returns: Void
-  static void saveStringToPreferences(String key, String value) async {
+  static void saveStringToPreferences(
+    String key,
+    String value,
+  ) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString(key, value);
+    await prefs.setString(
+      key,
+      value,
+    );
   }
 
   /// Utility method to fetch a saved preference
@@ -63,6 +81,7 @@ class NQUtils {
   /// Returns: the fetched value or null if there is no saved valye for the key
   static Future<String?> getStringFromPreferences(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
     return prefs.getString(key) ?? null;
   }
 
@@ -74,21 +93,29 @@ class NQUtils {
   ///   confirmButtonTitle: title of the confirmation button as String
   ///   onConfirmed: the callback function to be invoked when the confirmation button is tapped
   /// Returns: Void
-  static showConfirmationDialog(BuildContext context, String title, String message,
-      String confirmButtonTitle, Function onConfirmed) {
-    showDialog(
+  static void showConfirmationDialog(
+    BuildContext context,
+    String title,
+    String message,
+    String confirmButtonTitle,
+    Function onConfirmed,
+  ) {
+    showDialog<void>(
         context: context,
-        builder: (BuildContext context) {
+        builder: (
+          BuildContext context,
+        ) {
           return AlertDialog(
             title: Text(title),
             content: Text(message),
             actions: <Widget>[
               TextButton(
-                  child: Text(confirmButtonTitle),
-                  onPressed: () {
-                    onConfirmed();
-                    Navigator.of(context).pop();
-                  }),
+                child: Text(confirmButtonTitle),
+                onPressed: () {
+                  onConfirmed();
+                  Navigator.of(context).pop();
+                },
+              ),
               TextButton(
                 child: Text('Cancel'),
                 onPressed: () {
@@ -97,6 +124,6 @@ class NQUtils {
               ),
             ],
           );
-        });
+        },);
   }
 }

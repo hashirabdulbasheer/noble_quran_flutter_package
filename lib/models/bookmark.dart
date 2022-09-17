@@ -6,25 +6,27 @@ class NQBookmark {
   int? seconds;
   double? pixels;
 
-  NQBookmark(
-      {required this.surah,
-      required this.ayat,
-      this.word,
-      this.seconds,
-      this.pixels});
+  NQBookmark({
+    required this.surah,
+    required this.ayat,
+    this.word,
+    this.seconds,
+    this.pixels,
+  });
 
   factory NQBookmark.fromJson(Map<String, dynamic> json) => NQBookmark(
-      surah: json["surah"],
-      ayat: json["ayat"],
-      word: json["word"],
-      seconds: json["seconds"],
-      pixels: json["pixels"]);
+        surah: json["surah"] as int,
+        ayat: json["ayat"] as int,
+        word: json["word"] as int?,
+        seconds: json["seconds"] as int?,
+        pixels: json["pixels"] as double?,
+      );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => <String, dynamic>{
         "surah": surah,
         "ayat": ayat,
         "word": word,
         "seconds": seconds,
-        "pixels": pixels
+        "pixels": pixels,
       };
 }

@@ -1,4 +1,3 @@
-
 /// Surah Title for Table of Contents
 class NQSurahTitle {
   int number;
@@ -18,15 +17,16 @@ class NQSurahTitle {
   });
 
   factory NQSurahTitle.fromJson(Map<String, dynamic> json) => NQSurahTitle(
-        number: json["number"],
-        name: json["name"],
-        transliterationEn: json["transliteration_en"],
-        translationEn: json["translation_en"],
-        totalVerses: json["total_verses"],
-        revelationType: revelationTypeValues.map[json["revelation_type"]] ?? RevelationType.NA,
+        number: json["number"] as int,
+        name: json["name"] as String,
+        transliterationEn: json["transliteration_en"] as String,
+        translationEn: json["translation_en"] as String,
+        totalVerses: json["total_verses"] as int,
+        revelationType: revelationTypeValues.map[json["revelation_type"]] ??
+            RevelationType.NA,
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => <String, dynamic>{
         "number": number,
         "name": name,
         "transliteration_en": transliterationEn,
@@ -38,16 +38,28 @@ class NQSurahTitle {
 
 enum RevelationType { MECCAN, MEDINAN, NA }
 
-final revelationTypeValues =
-    EnumValues({"Meccan": RevelationType.MECCAN, "Medinan": RevelationType.MEDINAN});
+final revelationTypeValues = EnumValues({
+  "Meccan": RevelationType.MECCAN,
+  "Medinan": RevelationType.MEDINAN,
+});
 
 class EnumValues<T> {
   Map<String, T> map;
   Map<T, String>? reverseMap;
 
-  EnumValues(this.map);
-
   Map<T, String> get reverse {
-    return reverseMap ?? map.map((k, v) => new MapEntry(v, k));
+    return reverseMap ??
+        map.map(
+          (
+            k,
+            v,
+          ) =>
+              new MapEntry(
+            v,
+            k,
+          ),
+        );
   }
+
+  EnumValues(this.map);
 }

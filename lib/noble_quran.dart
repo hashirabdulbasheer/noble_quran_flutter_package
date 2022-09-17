@@ -36,7 +36,12 @@ class NobleQuran {
     String surahListJsonStr =
         await rootBundle.loadString(NQPathConstants.surahListPath);
     List<NQSurahTitle> surahFromJson = List<NQSurahTitle>.from(
-        json.decode(surahListJsonStr).map((x) => NQSurahTitle.fromJson(x)));
+      (json.decode(surahListJsonStr) as List<Map<String, dynamic>>)
+          .map<NQSurahTitle>(
+        (x) => NQSurahTitle.fromJson(x),
+      ),
+    );
+
     return surahFromJson;
   }
 
@@ -47,7 +52,12 @@ class NobleQuran {
     String surahListJsonStr =
         await rootBundle.loadString(NQPathConstants.surahListPath);
     List<NQSurahTitle> surahFromJson = List<NQSurahTitle>.from(
-        json.decode(surahListJsonStr).map((x) => NQSurahTitle.fromJson(x)));
+      (json.decode(surahListJsonStr) as List<Map<String, dynamic>>)
+          .map<NQSurahTitle>(
+        (x) => NQSurahTitle.fromJson(x),
+      ),
+    );
+
     return surahFromJson[index];
   }
 
@@ -57,6 +67,7 @@ class NobleQuran {
   static Future<List<List<NQWord>>> getSurahWordByWord(int surahIndex) async {
     String wordByWord = await rootBundle
         .loadString('${NQPathConstants.quranPath}/$surahIndex.json');
+
     return nqWordFromJson(wordByWord);
   }
 
@@ -66,8 +77,12 @@ class NobleQuran {
   static Future<NQSurah> getSurahArabic(int surahIndex) async {
     String quranArabicJson =
         await rootBundle.loadString(NQPathConstants.quranArabicPath);
-    Map<String, dynamic> jsonDict = json.decode(quranArabicJson);
-    return NQSurah.fromJson(jsonDict["quran"]["sura"][surahIndex]);
+    Map<String, dynamic> jsonDict =
+        json.decode(quranArabicJson) as Map<String, dynamic>;
+
+    return NQSurah.fromJson(
+      jsonDict["quran"]["sura"][surahIndex] as Map<String, dynamic>,
+    );
   }
 
   ///  Returns the transliteration ayats of a surah
@@ -76,8 +91,12 @@ class NobleQuran {
   static Future<NQSurah> getSurahTransliteration(int surahIndex) async {
     String quranArabicJson =
         await rootBundle.loadString(NQPathConstants.quranTransliterationPath);
-    Map<String, dynamic> jsonDict = json.decode(quranArabicJson);
-    return NQSurah.fromJson(jsonDict["quran"]["sura"][surahIndex]);
+    Map<String, dynamic> jsonDict =
+        json.decode(quranArabicJson) as Map<String, dynamic>;
+
+    return NQSurah.fromJson(
+      jsonDict["quran"]["sura"][surahIndex] as Map<String, dynamic>,
+    );
   }
 
   ///  Returns the translation of a surah
@@ -86,13 +105,19 @@ class NobleQuran {
   ///     translation as NQTranslation
   ///  Returns: NQSurah containing the translated ayats
   static Future<NQSurah> getTranslationString(
-      int surahIndex, NQTranslation translation) async {
+    int surahIndex,
+    NQTranslation translation,
+  ) async {
     String translationJsonStr = await rootBundle.loadString(
-        '${NQPathConstants.quranTranslationPath}/${translation.rawValue}.json');
+      '${NQPathConstants.quranTranslationPath}/${translation.rawValue}.json',
+    );
     Map<String, dynamic> fullQuranTranslationMap =
-        json.decode(translationJsonStr);
+        json.decode(translationJsonStr) as Map<String, dynamic>;
+
     return NQSurah.fromJson(
-        fullQuranTranslationMap["quran"]["sura"][surahIndex]);
+      fullQuranTranslationMap["quran"]["sura"][surahIndex]
+          as Map<String, dynamic>,
+    );
   }
 
   /// Returns a list of all translations available
@@ -103,7 +128,7 @@ class NobleQuran {
       NQTranslation.hilali,
       NQTranslation.malayalam_abdulhameed,
       NQTranslation.malayalam_karakunnu,
-      NQTranslation.urdu_maududi
+      NQTranslation.urdu_maududi,
     ];
   }
 
@@ -122,6 +147,7 @@ class NobleQuran {
     } else if (title == NQTranslation.urdu_maududi.title) {
       return NQTranslation.urdu_maududi;
     }
+
     return NQTranslation.clear;
   }
 
@@ -140,19 +166,25 @@ class NobleQuran {
     } else if (value == NQTranslation.urdu_maududi.rawValue) {
       return NQTranslation.urdu_maududi;
     }
+
     return NQTranslation.clear;
   }
 
   /// Returns all reciters
   static List<QuranReciter> getAllReciters() {
     List<Map<String, String>> recitersJson = NQData.recitersJson;
+
     return recitersJson.map((e) => QuranReciter.fromJson(e)).toList();
   }
 
   /// Returns the url for the audio recitation of an aya
   static String audioRecitationUrl(
-      QuranReciter reciter, int surahIndex, int ayaIndex) {
+    QuranReciter reciter,
+    int surahIndex,
+    int ayaIndex,
+  ) {
     final intl.NumberFormat formatter = intl.NumberFormat("000");
+
     return "${NQUrlConstants.audioRecitationBaseUrl}/${reciter.subfolder}/${formatter.format(surahIndex)}${formatter.format(ayaIndex)}.mp3";
   }
 }
