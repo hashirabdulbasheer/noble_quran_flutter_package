@@ -33,14 +33,9 @@ class NobleQuran {
   ///  Parameter: None
   ///  Returns: List of SurahTitle
   static Future<List<NQSurahTitle>> getSurahList() async {
-    String surahListJsonStr =
-        await rootBundle.loadString(NQPathConstants.surahListPath);
-    List<NQSurahTitle> surahFromJson = List<NQSurahTitle>.from(
-      (json.decode(surahListJsonStr) as List<Map<String, dynamic>>)
-          .map<NQSurahTitle>(
-        (x) => NQSurahTitle.fromJson(x),
-      ),
-    );
+    String surahListJsonStr = await rootBundle.loadString(NQPathConstants.surahListPath);
+    dynamic result = json.decode(surahListJsonStr);
+    List<NQSurahTitle> surahFromJson = (result as List).map((dynamic e) => NQSurahTitle.fromJson(e),).toList();
 
     return surahFromJson;
   }
@@ -51,12 +46,7 @@ class NobleQuran {
   static Future<NQSurahTitle> getSurahTitleAtIndex(int index) async {
     String surahListJsonStr =
         await rootBundle.loadString(NQPathConstants.surahListPath);
-    List<NQSurahTitle> surahFromJson = List<NQSurahTitle>.from(
-      (json.decode(surahListJsonStr) as List<Map<String, dynamic>>)
-          .map<NQSurahTitle>(
-        (x) => NQSurahTitle.fromJson(x),
-      ),
-    );
+    List<NQSurahTitle> surahFromJson = (json.decode(surahListJsonStr) as List).map((dynamic x) => NQSurahTitle.fromJson(x),).toList();
 
     return surahFromJson[index];
   }
@@ -77,8 +67,7 @@ class NobleQuran {
   static Future<NQSurah> getSurahArabic(int surahIndex) async {
     String quranArabicJson =
         await rootBundle.loadString(NQPathConstants.quranArabicPath);
-    Map<String, dynamic> jsonDict =
-        json.decode(quranArabicJson) as Map<String, dynamic>;
+    dynamic jsonDict = json.decode(quranArabicJson);
 
     return NQSurah.fromJson(
       jsonDict["quran"]["sura"][surahIndex] as Map<String, dynamic>,
@@ -91,8 +80,7 @@ class NobleQuran {
   static Future<NQSurah> getSurahTransliteration(int surahIndex) async {
     String quranArabicJson =
         await rootBundle.loadString(NQPathConstants.quranTransliterationPath);
-    Map<String, dynamic> jsonDict =
-        json.decode(quranArabicJson) as Map<String, dynamic>;
+    dynamic jsonDict = json.decode(quranArabicJson);
 
     return NQSurah.fromJson(
       jsonDict["quran"]["sura"][surahIndex] as Map<String, dynamic>,
@@ -111,8 +99,7 @@ class NobleQuran {
     String translationJsonStr = await rootBundle.loadString(
       '${NQPathConstants.quranTranslationPath}/${translation.rawValue}.json',
     );
-    Map<String, dynamic> fullQuranTranslationMap =
-        json.decode(translationJsonStr) as Map<String, dynamic>;
+    dynamic fullQuranTranslationMap = json.decode(translationJsonStr);
 
     return NQSurah.fromJson(
       fullQuranTranslationMap["quran"]["sura"][surahIndex]

@@ -25,8 +25,7 @@ class NQSurah {
   });
 
   factory NQSurah.fromJson(Map<String, dynamic> json) => NQSurah(
-        aya: List<NQAyat>.from((json["aya"] as List<Map<String, dynamic>>)
-            .map<NQAyat>((x) => NQAyat.fromJson(x))),
+        aya: nqAyatArabicFromJson(json["aya"] as List<dynamic>),
         index: json["index"] as String,
         name: json["name"] as String? ?? "",
       );
@@ -41,6 +40,9 @@ class NQSurah {
 }
 
 /// Ayat model - the model that holds the details of an Ayat
+List<NQAyat> nqAyatArabicFromJson(List<dynamic> ayat) =>
+    List<NQAyat>.from(ayat.map<NQAyat>((x) => NQAyat.fromJson(x)));
+
 class NQAyat {
   final String index;
   final String text;
@@ -50,7 +52,7 @@ class NQAyat {
     required this.text,
   });
 
-  factory NQAyat.fromJson(Map<String, dynamic> json) => NQAyat(
+  factory NQAyat.fromJson(dynamic json) => NQAyat(
         index: json["index"] as String,
         text: json["text"] as String,
       );

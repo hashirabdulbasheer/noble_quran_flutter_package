@@ -23,92 +23,92 @@ analyzer:
     - lib/src/localization_gen/**
     - test/**
   # my modified settings for language and strong-mode and errors
-  language:
-    strict-raw-types: true
-  strong-mode:
-    implicit-dynamic: false
-    implicit-casts: false
+#  language:
+#    strict-raw-types: true
+#  strong-mode:
+#    implicit-dynamic: true
+#    implicit-casts: false
   errors:
     missing_required_param: warning
     missing_return: warning
     todo: ignore
-  plugins:
-    - dart_code_metrics
-dart_code_metrics:
-  anti-patterns:
-    - long-method
-    - long-parameter-list
-  metrics:
-    cyclomatic-complexity: 20
-    maximum-nesting-level: 10
-    number-of-parameters: 10
-    source-lines-of-code: 200
-  metrics-exclude:
-    - test/noble_quran_test.dart
-  # per https://dartcodemetrics.dev/docs/getting-started/configuration#configuring-a-rules-entry
-  # and https://dartcodemetrics.dev/docs/rules/overview
-  rules:
-    - always-remove-listener:
-        severity:  warning
-    - avoid-border-all:
-        severity: warning
-    - avoid-returning-widgets:
-        severity: warning
-    - avoid-unnecessary-setstate:
-        severity: warning
-    - member-ordering-extended:
-        severity: warning
-    - avoid-late-keyword:
-        severity:  warning
-    - avoid-nested-conditional-expressions:
-        severity:  style
-    - avoid-non-null-assertion:
-        severity:  warning
-    - avoid-unnecessary-setstate:
-        severity:  warning
-    - avoid-unused-parameters:
-        severity:  warning
-    - avoid-wrapping-in-padding:
-        severity:  warning
-    - binary-expression-operand-order:
-        severity:  style
-    - double-literal-format:
-        severity:  style
-    - newline-before-return:
-        severity:  style
-    - no-boolean-literal-compare:
-        severity:  style
-    - no-empty-bloc:
-        severity:  style
-    - no-equal-arguments:
-        severity:  warning
-    - no-equal-then-else:
-        severity:  warning
-    - no-object-declaration:
-        severity:  style
-    - prefer-conditional-expression:
-        severity:  style
-    - prefer-const-border-radius:
-        severity:  performance
-    - prefer-extracting-callbacks:
-        severity:  style
-    - prefer-intl-name:
-        severity:  warning
-    - prefer-single-widget-per-file:
-        severity:  style
-    - prefer-correct-indentifier-length:
-        exceptions: [ 'z' ]
-        max-identifier-length: 30
-        min-identifier-length: 4
-    - prefer-correct-type-name:
-        excluded: [ 'exampleExclude' ]
-        min-length: 3
-        max-length: 40
-    - prefer-first:
-        severity:  style
-    - prefer-last:
-        severity:  style
-    - prefer-trailing-comma:
-        break-on: 2
-    - provide-correct-intl-args:
-        severity:  warning
+#  plugins:
+#    - dart_code_metrics
+#dart_code_metrics:
+#  anti-patterns:
+#    - long-method
+#    - long-parameter-list
+#  metrics:
+#    cyclomatic-complexity: 20
+#    maximum-nesting-level: 10
+#    number-of-parameters: 10
+#    source-lines-of-code: 200
+#  metrics-exclude:
+#    - test/noble_quran_test.dart
+#  # per https://dartcodemetrics.dev/docs/getting-started/configuration#configuring-a-rules-entry
+#  # and https://dartcodemetrics.dev/docs/rules/overview
+#  rules:
+#    - always-remove-listener:
+#        severity:  warning
+#    - avoid-border-all:
+#        severity: warning
+#    - avoid-returning-widgets:
+#        severity: warning
+#    - avoid-unnecessary-setstate:
+#        severity: warning
+#    - member-ordering-extended:
+#        severity: warning
+#    - avoid-late-keyword:
+#        severity:  warning
+#    - avoid-nested-conditional-expressions:
+#        severity:  style
+#    - avoid-non-null-assertion:
+#        severity:  warning
+#    - avoid-unnecessary-setstate:
+#        severity:  warning
+#    - avoid-unused-parameters:
+#        severity:  warning
+#    - avoid-wrapping-in-padding:
+#        severity:  warning
+#    - binary-expression-operand-order:
+#        severity:  style
+#    - double-literal-format:
+#        severity:  style
+#    - newline-before-return:
+#        severity:  style
+#    - no-boolean-literal-compare:
+#        severity:  style
+#    - no-empty-bloc:
+#        severity:  style
+#    - no-equal-arguments:
+#        severity:  warning
+#    - no-equal-then-else:
+#        severity:  warning
+#    - no-object-declaration:
+#        severity:  style
+#    - prefer-conditional-expression:
+#        severity:  style
+#    - prefer-const-border-radius:
+#        severity:  performance
+#    - prefer-extracting-callbacks:
+#        severity:  style
+#    - prefer-intl-name:
+#        severity:  warning
+#    - prefer-single-widget-per-file:
+#        severity:  style
+#    - prefer-correct-indentifier-length:
+#        exceptions: [ 'z' ]
+#        max-identifier-length: 30
+#        min-identifier-length: 4
+#    - prefer-correct-type-name:
+#        excluded: [ 'exampleExclude' ]
+#        min-length: 3
+#        max-length: 40
+#    - prefer-first:
+#        severity:  style
+#    - prefer-last:
+#        severity:  style
+#    - prefer-trailing-comma:
+#        break-on: 2
+#    - provide-correct-intl-args:
+#        severity:  warning

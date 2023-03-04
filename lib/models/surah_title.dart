@@ -16,7 +16,7 @@ class NQSurahTitle {
     required this.revelationType,
   });
 
-  factory NQSurahTitle.fromJson(Map<String, dynamic> json) => NQSurahTitle(
+  factory NQSurahTitle.fromJson(dynamic json) => NQSurahTitle(
         number: json["number"] as int,
         name: json["name"] as String,
         transliterationEn: json["transliteration_en"] as String,
