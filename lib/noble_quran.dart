@@ -134,6 +134,8 @@ class NobleQuran {
       return NQTranslation.malayalam_karakunnu;
     } else if (title == NQTranslation.urdu_maududi.title) {
       return NQTranslation.urdu_maududi;
+    } else if (title == NQTranslation.haleem.title) {
+      return NQTranslation.haleem;
     }
 
     return NQTranslation.clear;
@@ -153,6 +155,8 @@ class NobleQuran {
       return NQTranslation.malayalam_karakunnu;
     } else if (value == NQTranslation.urdu_maududi.rawValue) {
       return NQTranslation.urdu_maududi;
+    } else if (value == NQTranslation.haleem.rawValue) {
+      return NQTranslation.haleem;
     }
 
     return NQTranslation.clear;
