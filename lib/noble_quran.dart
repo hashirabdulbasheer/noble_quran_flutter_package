@@ -110,6 +110,7 @@ class NobleQuran {
   /// Returns a list of all translations available
   static List<NQTranslation> getAllTranslations() {
     return [
+      NQTranslation.haleem,
       NQTranslation.clear,
       NQTranslation.sahih,
       NQTranslation.hilali,
