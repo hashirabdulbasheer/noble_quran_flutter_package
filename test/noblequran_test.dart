@@ -101,4 +101,17 @@ void main() {
     expect(url,
         "http://www.everyayah.com/data/khalefa_al_tunaiji_64kbps/001002.mp3");
   });
+
+  test('translations', () async {
+    NQTranslation sahih = NobleQuran.getTranslationFromTitle(NQTranslation.sahih.title);
+    List<NQTranslation> translations = NobleQuran.getAllTranslations();
+    for (NQTranslation t in translations) {
+      for (var i=0; i<114; i++) {
+        NQSurah surah =  await NobleQuran.getTranslationString(i, t);
+        NQSurah sahihSurah =  await NobleQuran.getTranslationString(i, sahih);
+        expect(surah.aya.length, sahihSurah.aya.length);
+      }
+    }
+  });
+
 }
