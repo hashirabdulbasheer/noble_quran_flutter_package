@@ -34,6 +34,11 @@ class NQSurahTitle {
         "total_verses": totalVerses,
         "revelation_type": revelationTypeValues.reverse[revelationType],
       };
+
+  @override
+  String toString() {
+    return '$number $transliterationEn';
+  }
 }
 
 enum RevelationType { MECCAN, MEDINAN, NA }
