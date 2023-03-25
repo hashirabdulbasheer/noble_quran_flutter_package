@@ -7,11 +7,6 @@ class NQData {
       "bitrate": "64kbps",
     },
     {
-      "subfolder": "Abdul_Basit_Murattal_192kbps",
-      "name": "Abdul Basit Murattal",
-      "bitrate": "192kbps",
-    },
-    {
       "subfolder": "Abdul_Basit_Mujawwad_128kbps",
       "name": "Abdul Basit Mujawwad",
       "bitrate": "128kbps",
@@ -22,24 +17,9 @@ class NQData {
       "bitrate": "32kbps",
     },
     {
-      "subfolder": "Abdullah_Basfar_64kbps",
-      "name": "Abdullah Basfar",
-      "bitrate": "64kbps",
-    },
-    {
-      "subfolder": "Abdullah_Basfar_192kbps",
-      "name": "Abdullah Basfar",
-      "bitrate": "192kbps",
-    },
-    {
       "subfolder": "Abdurrahmaan_As-Sudais_64kbps",
       "name": "Abdurrahmaan As-Sudais",
       "bitrate": "64kbps",
-    },
-    {
-      "subfolder": "Abdurrahmaan_As-Sudais_192kbps",
-      "name": "Abdurrahmaan As-Sudais",
-      "bitrate": "192kbps",
     },
     {
       "subfolder": "AbdulSamad_64kbps_QuranExplorer.Com",
@@ -52,29 +32,14 @@ class NQData {
       "bitrate": "64kbps",
     },
     {
-      "subfolder": "Abu_Bakr_Ash-Shaatree_128kbps",
-      "name": "Abu Bakr Ash-Shaatree",
-      "bitrate": "128kbps",
-    },
-    {
       "subfolder": "Ahmed_ibn_Ali_al-Ajamy_64kbps_QuranExplorer.Com",
       "name": "Ahmed ibn Ali al-Ajamy QuranExplorer.Com",
       "bitrate": "64kbps",
     },
     {
-      "subfolder": "Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net",
-      "name": "Ahmed ibn Ali al-Ajamy KetabAllah.Net",
-      "bitrate": "128kbps",
-    },
-    {
       "subfolder": "Alafasy_64kbps",
       "name": "Alafasy",
       "bitrate": "64kbps",
-    },
-    {
-      "subfolder": "Alafasy_128kbps",
-      "name": "Alafasy",
-      "bitrate": "128kbps",
     },
     {
       "subfolder": "Ghamadi_40kbps",
@@ -87,19 +52,9 @@ class NQData {
       "bitrate": "64kbps",
     },
     {
-      "subfolder": "Hani_Rifai_192kbps",
-      "name": "Hani Rifai",
-      "bitrate": "192kbps",
-    },
-    {
       "subfolder": "Husary_64kbps",
       "name": "Husary",
       "bitrate": "64kbps",
-    },
-    {
-      "subfolder": "Husary_128kbps",
-      "name": "Husary",
-      "bitrate": "128kbps",
     },
     {
       "subfolder": "Husary_Mujawwad_64kbps",
@@ -107,24 +62,9 @@ class NQData {
       "bitrate": "64kbps",
     },
     {
-      "subfolder": "Husary_128kbps_Mujawwad",
-      "name": "Husary Mujawwad",
-      "bitrate": "128kbps",
-    },
-    {
       "subfolder": "Hudhaify_32kbps",
       "name": "Hudhaify",
       "bitrate": "32kbps",
-    },
-    {
-      "subfolder": "Hudhaify_64kbps",
-      "name": "Hudhaify",
-      "bitrate": "64kbps",
-    },
-    {
-      "subfolder": "Hudhaify_128kbps",
-      "name": "Hudhaify",
-      "bitrate": "128kbps",
     },
     {
       "subfolder": "Ibrahim_Akhdar_32kbps",
@@ -132,19 +72,9 @@ class NQData {
       "bitrate": "32kbps",
     },
     {
-      "subfolder": "Ibrahim_Akhdar_64kbps",
-      "name": "Ibrahim Akhdar",
-      "bitrate": "64kbps",
-    },
-    {
       "subfolder": "Maher_AlMuaiqly_64kbps",
       "name": "Maher Al Muaiqly",
       "bitrate": "64kbps",
-    },
-    {
-      "subfolder": "MaherAlMuaiqly128kbps",
-      "name": "Maher Al Muaiqly",
-      "bitrate": "128kbps",
     },
     {
       "subfolder": "Menshawi_16kbps",
@@ -152,19 +82,9 @@ class NQData {
       "bitrate": "16kbps",
     },
     {
-      "subfolder": "Menshawi_32kbps",
-      "name": "Menshawi",
-      "bitrate": "32kbps",
-    },
-    {
       "subfolder": "Minshawy_Mujawwad_64kbps",
       "name": "Minshawy Mujawwad",
       "bitrate": "64kbps",
-    },
-    {
-      "subfolder": "Minshawy_Mujawwad_192kbps",
-      "name": "Minshawy Mujawwad",
-      "bitrate": "192kbps",
     },
     {
       "subfolder": "Minshawy_Murattal_128kbps",
@@ -174,21 +94,6 @@ class NQData {
     {
       "subfolder": "Mohammad_al_Tablaway_64kbps",
       "name": "Mohammad al Tablaway",
-      "bitrate": "64kbps",
-    },
-    {
-      "subfolder": "Mohammad_al_Tablaway_128kbps",
-      "name": "Mohammad al Tablaway",
-      "bitrate": "128kbps",
-    },
-    {
-      "subfolder": "Muhammad_Ayyoub_128kbps",
-      "name": "Muhammad Ayyoub",
-      "bitrate": "128kbps",
-    },
-    {
-      "subfolder": "Muhammad_Ayyoub_64kbps",
-      "name": "Muhammad Ayyoub",
       "bitrate": "64kbps",
     },
     {
@@ -202,11 +107,6 @@ class NQData {
       "bitrate": "64kbps",
     },
     {
-      "subfolder": "Muhammad_Jibreel_128kbps",
-      "name": "Muhammad Jibreel",
-      "bitrate": "128kbps",
-    },
-    {
       "subfolder": "Mustafa_Ismail_48kbps",
       "name": "Mustafa Ismail",
       "bitrate": "48kbps",
@@ -215,11 +115,6 @@ class NQData {
       "subfolder": "Saood_ash-Shuraym_64kbps",
       "name": "Saood bin Ibraaheem Ash-Shuraym",
       "bitrate": "64kbps",
-    },
-    {
-      "subfolder": "Saood_ash-Shuraym_128kbps",
-      "name": "Saood bin Ibraaheem Ash-Shuraym",
-      "bitrate": "128kbps",
     },
     {
       "subfolder": "English\/Sahih_Intnl_Ibrahim_Walk_192kbps",
