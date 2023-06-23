@@ -1,4 +1,4 @@
-enum NQTranslation { sahih, hilali, haleem, clear, malayalam_abdulhameed, malayalam_karakunnu, urdu_maududi }
+enum NQTranslation { sahih, hilali, haleem, clear, wahiduddinkhan, malayalam_abdulhameed, malayalam_karakunnu, urdu_maududi }
 
 extension NQTranslationExtension on NQTranslation {
   String get rawValue {
@@ -11,6 +11,8 @@ extension NQTranslationExtension on NQTranslation {
         return 'clear';
       case NQTranslation.haleem:
         return 'en-abdelhaleem';
+      case NQTranslation.wahiduddinkhan:
+        return 'eng-wahiduddinkhan';
       case NQTranslation.malayalam_abdulhameed:
         return 'ml_abdulhameed';
       case NQTranslation.malayalam_karakunnu:
@@ -32,6 +34,8 @@ extension NQTranslationExtension on NQTranslation {
         return 'Clear Quran';
       case NQTranslation.haleem:
         return 'Abdel Haleem';
+      case NQTranslation.wahiduddinkhan:
+        return 'Wahiduddin Khan';
       case NQTranslation.malayalam_abdulhameed:
         return 'അബ്ദുല്‍ ഹമീദ് & പറപ്പൂര്‍';
       case NQTranslation.malayalam_karakunnu:

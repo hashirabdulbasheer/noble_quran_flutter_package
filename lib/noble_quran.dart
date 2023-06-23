@@ -114,6 +114,7 @@ class NobleQuran {
       NQTranslation.clear,
       NQTranslation.sahih,
       NQTranslation.hilali,
+      NQTranslation.wahiduddinkhan,
       NQTranslation.malayalam_abdulhameed,
       NQTranslation.malayalam_karakunnu,
       NQTranslation.urdu_maududi,
@@ -136,6 +137,8 @@ class NobleQuran {
       return NQTranslation.urdu_maududi;
     } else if (title == NQTranslation.haleem.title) {
       return NQTranslation.haleem;
+    } else if (title == NQTranslation.wahiduddinkhan.title) {
+      return NQTranslation.wahiduddinkhan;
     }
 
     return NQTranslation.clear;
@@ -157,6 +160,8 @@ class NobleQuran {
       return NQTranslation.urdu_maududi;
     } else if (value == NQTranslation.haleem.rawValue) {
       return NQTranslation.haleem;
+    } else if (value == NQTranslation.wahiduddinkhan.rawValue) {
+      return NQTranslation.wahiduddinkhan;
     }
 
     return NQTranslation.clear;
