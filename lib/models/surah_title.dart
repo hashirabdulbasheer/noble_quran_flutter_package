@@ -16,6 +16,14 @@ class NQSurahTitle {
     required this.revelationType,
   });
 
+  NQSurahTitle.defaultValue()
+      : number = 1,
+        name = "سورة الفاتحة",
+        transliterationEn = "Al-Faatiha",
+        translationEn = "The Opening",
+        totalVerses = 7,
+        revelationType = RevelationType.MECCAN;
+
   factory NQSurahTitle.fromJson(dynamic json) => NQSurahTitle(
         number: json["number"] as int,
         name: json["name"] as String,
