@@ -1,11 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:noble_quran/enums/translations.dart';
-import 'package:noble_quran/models/reciter.dart';
-import 'package:noble_quran/models/surah.dart';
-import 'package:noble_quran/models/surah_title.dart';
-import 'package:noble_quran/models/word.dart';
 import 'package:noble_quran/noble_quran.dart';
 
 void main() {
@@ -89,7 +84,7 @@ void main() {
   test('get surah recitations', () {
     List<QuranReciter> reciters = NobleQuran.getAllReciters();
     expect(reciters.isNotEmpty, true);
-    expect(reciters.length, 79);
+    expect(reciters.length, 58);
   });
 
   test('get surah url', () async {
@@ -103,15 +98,35 @@ void main() {
   });
 
   test('translations', () async {
-    NQTranslation sahih = NobleQuran.getTranslationFromTitle(NQTranslation.sahih.title);
+    NQTranslation sahih =
+        NobleQuran.getTranslationFromTitle(NQTranslation.sahih.title);
     List<NQTranslation> translations = NobleQuran.getAllTranslations();
     for (NQTranslation t in translations) {
-      for (var i=0; i<114; i++) {
-        NQSurah surah =  await NobleQuran.getTranslationString(i, t);
-        NQSurah sahihSurah =  await NobleQuran.getTranslationString(i, sahih);
+      for (var i = 0; i < 114; i++) {
+        NQSurah surah = await NobleQuran.getTranslationString(i, t);
+        NQSurah sahihSurah = await NobleQuran.getTranslationString(i, sahih);
         expect(surah.aya.length, sahihSurah.aya.length);
       }
     }
   });
 
+  test('getRukuForAya', () async {
+    NQRuku? ruku = NobleQuran.getRukuForAya(0, 3);
+    expect(ruku, kLocalRukusData[0]);
+    ruku = NobleQuran.getRukuForAya(1, 120);
+    expect(ruku, kLocalRukusData[14]);
+    ruku = NobleQuran.getRukuForAya(0, 120);
+    expect(ruku, null);
+    ruku = NobleQuran.getRukuForAya(0, 0);
+    expect(ruku, kLocalRukusData[0]);
+    ruku = NobleQuran.getRukuForAya(113, 5);
+    expect(ruku, kLocalRukusData[555]);
+  });
+
+  test('getRuku', () async {
+    NQRuku? ruku = NobleQuran.getRuku(0);
+    expect(ruku, kLocalRukusData[0]);
+    ruku = NobleQuran.getRuku(555);
+    expect(ruku, kLocalRukusData[555]);
+  });
 }

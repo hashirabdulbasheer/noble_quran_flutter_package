@@ -2,6 +2,7 @@ library noblequran;
 
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart' as intl;
@@ -188,13 +189,18 @@ class NobleQuran {
     return "${NQUrlConstants.audioRecitationBaseUrl}/${reciter.subfolder}/${formatter.format(surahIndex)}${formatter.format(ayaIndex)}.mp3";
   }
 
-  /// Returns the ruku data given an index
-  static NQRuku getRuku(int index) {
-    final data = kLocalRukusData[index];
-    return NQRuku(
-        id: data["index"] ?? index,
-        startIndexSura: data["sura"] ?? 0,
-        startIndexAya: data["aya"] ?? 0,
-        numOfAyas: data["num"] ?? 0);
+  /// Returns the ruku data given an index that starts at 0
+  static NQRuku? getRuku(int index) {
+    return kLocalRukusData[index];
+  }
+
+  /// Returns the ruku data for a specific sura:aya starting at 0
+  static NQRuku? getRukuForAya(int sura, int aya) {
+    return kLocalRukusData.values.firstWhereOrNull((ruku) {
+      if (ruku.startIndexSura == sura) {
+        return ruku.startIndexAya <= aya && aya < ruku.startIndexAya + ruku.numOfAyas;
+      }
+      return false;
+    });
   }
 }
