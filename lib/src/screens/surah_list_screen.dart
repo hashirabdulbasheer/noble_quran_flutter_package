@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/surah_title.dart';
-import '../noble_quran.dart';
+import '../main.dart';
 import 'surah_title_row_widget.dart';
 
 class NobleQuranSurahListScreen extends StatelessWidget {

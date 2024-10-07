@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class Ruku extends Equatable {
+class NQRuku extends Equatable {
   final int id;
   final int startIndexSura;
   final int startIndexAya;
   final int numOfAyas;
 
-  const Ruku({
+  const NQRuku({
     required this.id,
     required this.startIndexSura,
     required this.startIndexAya,

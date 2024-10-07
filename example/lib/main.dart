@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:noble_quran/enums/translations.dart';
-import 'package:noble_quran/models/surah.dart';
-import 'package:noble_quran/models/surah_title.dart';
-import 'package:noble_quran/models/word.dart';
 import 'package:noble_quran/noble_quran.dart';
 
 void main() {
