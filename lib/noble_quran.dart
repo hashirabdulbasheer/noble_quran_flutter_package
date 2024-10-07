@@ -1,8 +1,13 @@
 library noblequran;
 
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart' as intl;
+import 'package:noble_quran/data/rukus_data.dart';
+import 'package:noble_quran/models/ruku.dart';
+
 import 'constants/path_constants.dart';
 import 'data/data.dart';
 import 'enums/translations.dart';
@@ -11,7 +16,6 @@ import 'models/surah.dart';
 import 'models/surah_title.dart';
 import 'models/word.dart';
 import 'screens/surah_list_screen.dart';
-import 'package:intl/intl.dart' as intl;
 
 /// NobleQuran class to access the functionality of the package
 class NobleQuran {
@@ -33,9 +37,14 @@ class NobleQuran {
   ///  Parameter: None
   ///  Returns: List of SurahTitle
   static Future<List<NQSurahTitle>> getSurahList() async {
-    String surahListJsonStr = await rootBundle.loadString(NQPathConstants.surahListPath);
+    String surahListJsonStr =
+        await rootBundle.loadString(NQPathConstants.surahListPath);
     dynamic result = json.decode(surahListJsonStr);
-    List<NQSurahTitle> surahFromJson = (result as List).map((dynamic e) => NQSurahTitle.fromJson(e),).toList();
+    List<NQSurahTitle> surahFromJson = (result as List)
+        .map(
+          (dynamic e) => NQSurahTitle.fromJson(e),
+        )
+        .toList();
 
     return surahFromJson;
   }
@@ -46,7 +55,11 @@ class NobleQuran {
   static Future<NQSurahTitle> getSurahTitleAtIndex(int index) async {
     String surahListJsonStr =
         await rootBundle.loadString(NQPathConstants.surahListPath);
-    List<NQSurahTitle> surahFromJson = (json.decode(surahListJsonStr) as List).map((dynamic x) => NQSurahTitle.fromJson(x),).toList();
+    List<NQSurahTitle> surahFromJson = (json.decode(surahListJsonStr) as List)
+        .map(
+          (dynamic x) => NQSurahTitle.fromJson(x),
+        )
+        .toList();
 
     return surahFromJson[index];
   }
@@ -183,5 +196,15 @@ class NobleQuran {
     final intl.NumberFormat formatter = intl.NumberFormat("000");
 
     return "${NQUrlConstants.audioRecitationBaseUrl}/${reciter.subfolder}/${formatter.format(surahIndex)}${formatter.format(ayaIndex)}.mp3";
+  }
+
+  /// Returns the ruku data given an index
+  static Ruku getRuku(int index) {
+    final data = kLocalRukusData[index];
+    return Ruku(
+        id: data["index"] ?? index,
+        startIndexSura: data["sura"] ?? 0,
+        startIndexAya: data["aya"] ?? 0,
+        numOfAyas: data["num"] ?? 0);
   }
 }
