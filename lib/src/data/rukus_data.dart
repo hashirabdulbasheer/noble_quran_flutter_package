@@ -474,7 +474,7 @@ final kLocalRukusData = {
   470: NQRuku(id: 470, startIndexSura: 17, startIndexAya: 59, numOfAyas: 11),
   471: NQRuku(id: 471, startIndexSura: 17, startIndexAya: 70, numOfAyas: 4),
   472: NQRuku(id: 472, startIndexSura: 17, startIndexAya: 74, numOfAyas: 8),
-  473: NQRuku(id: 473, startIndexSura: 17, startIndexAya: 82, numOfAyas: -72),
+  473: NQRuku(id: 473, startIndexSura: 17, startIndexAya: 82, numOfAyas: 19),
   474: NQRuku(id: 474, startIndexSura: 17, startIndexAya: 101, numOfAyas: 7),
   475: NQRuku(id: 475, startIndexSura: 18, startIndexAya: 0, numOfAyas: 15),
   476: NQRuku(id: 476, startIndexSura: 18, startIndexAya: 15, numOfAyas: 11),
