@@ -114,13 +114,13 @@ void main() {
     NQRuku? ruku = NobleQuran.getRukuForAya(0, 3);
     expect(ruku, kLocalRukusData[0]);
     ruku = NobleQuran.getRukuForAya(1, 120);
-    expect(ruku, kLocalRukusData[40]);
+    expect(ruku, kLocalRukusData[14]);
     ruku = NobleQuran.getRukuForAya(0, 120);
     expect(ruku, null);
     ruku = NobleQuran.getRukuForAya(0, 0);
     expect(ruku, kLocalRukusData[0]);
     ruku = NobleQuran.getRukuForAya(113, 5);
-    expect(ruku, kLocalRukusData[933]);
+    expect(ruku, kLocalRukusData[555]);
   });
 
   test('getRuku', () async {
@@ -128,5 +128,24 @@ void main() {
     expect(ruku, kLocalRukusData[0]);
     ruku = NobleQuran.getRuku(555);
     expect(ruku, kLocalRukusData[555]);
+  });
+
+  test('Ruku Data', () async {
+    final data = kLocalRukusData;
+    int currentSura = 0;
+    Map<int, int> totals = {};
+    for (var item in data.values) {
+      totals[item.startIndexSura] =
+          (totals[item.startIndexSura] ?? 0) + item.numOfAyas;
+    }
+    // print(totals);
+    List<NQSurahTitle> surah = await NobleQuran.getSurahList();
+    for (var s in surah) {
+      if (s.totalVerses != totals[s.number - 1]) {
+        print(
+            "sura ${s.number} = ${s.translationEn} = ${s.totalVerses} = ${totals[s.number - 1]}");
+      }
+      expect(s.totalVerses, totals[s.number - 1]);
+    }
   });
 }
