@@ -1,5 +1,8 @@
 import 'package:noble_quran/noble_quran.dart';
 
+///
+/// From https://tanzil.net/res/text/metadata/quran-data.xml
+///
 final kLocalRukusData = {
   0: NQRuku(id: 0, startIndexSura: 0, startIndexAya: 0, numOfAyas: 7),
   1: NQRuku(id: 1, startIndexSura: 1, startIndexAya: 0, numOfAyas: 7),
